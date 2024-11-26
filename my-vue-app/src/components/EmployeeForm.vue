@@ -1,10 +1,13 @@
 <template>
-  <div id="employee-form">
-    <form @submit.prevent="handleSubmit">
-      <label>Name</label>
-      <input v-model="employee.name" type="text" />
-      <label> Email</label>
-      <input v-model="employee.email" type="text" />
+  <div >
+    <form @submit.prevent="handleSubmit" id="employee-form">
+      <div>
+        <label>Name</label>
+        <input v-model="employee.name" type="text" />
+        <label> Email</label>
+        <input v-model="employee.email" type="text" />
+      </div>
+      
       <button>Add Employee</button>
     </form>
   </div>
@@ -41,5 +44,24 @@
   input{
     height: 6vh;
     font-size: 18px;
+  }
+
+  #employee-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #employee-form label {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+  }
+
+  #employee-form button {
+    margin-top: 1rem;
+    width: 30vh;
+
   }
 </style>

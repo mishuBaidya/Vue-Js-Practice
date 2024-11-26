@@ -13,7 +13,8 @@
   <div id="nav">
     <nav>
       <router-link to="/">Home</router-link> |
-      <router-link :to="{name: 'about'}">About</router-link>
+      <router-link :to="{name: 'about'}">About</router-link> |
+      <router-link :to="{name: 'employee'}">Employee</router-link>
     </nav>
   </div>
   <div>
