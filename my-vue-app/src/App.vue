@@ -1,39 +1,25 @@
-
-
 <script>
-  import EmployeeTable from './components/EmployeeTable.vue'
-  import EmployeeForm from './components/EmployeeForm.vue'
-
   export default {
     name: 'app',
     components: {
-      EmployeeTable,
-      EmployeeForm,
     },
     data() {
-    return {
-      employees: [
-        {
-          name: 'Mishu Baidya',
-          email: 'mishu.baidya@enosisbd.com',
-        },
-          ],
-      }},
-      methods: {
-        addEmployee(employee) {
-          this.employees = [...this.employees, employee]
-        }
       }
   }
 </script>
 
 
 <template>
-  <div class="small-container">
-    <h1>Employees</h1>
-    <employee-form @add:employee="addEmployee" />
-    <employee-table :employees="employees" />
+  <div id="nav">
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link :to="{name: 'about'}">About</router-link>
+    </nav>
   </div>
+  <div>
+    <router-view/>
+  </div>
+  
 </template>
 
 <style>
@@ -44,6 +30,18 @@
 
   .small-container {
     max-width: 680px;
+  }
+
+  #nav{
+    padding: 30px;
+  }
+  #nav a {
+    color: #2c3e50;
+  }
+
+  #nav a.router-link-exact-active {
+    font-weight: bold;
+    color: white;
   }
 </style>
 
