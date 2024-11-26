@@ -9,7 +9,9 @@
         </thead>
         <tbody>
           <tr v-for="employee in employees" :key="employee.id">
-            <td>{{ employee.name }}</td>
+            <router-link :to="{ name: 'employeeDetails', params: { id: employee.id } }"  >
+              <td>{{ employee.name }}</td>
+            </router-link>
             <td>{{ employee.email }}</td>
           </tr>
         </tbody>

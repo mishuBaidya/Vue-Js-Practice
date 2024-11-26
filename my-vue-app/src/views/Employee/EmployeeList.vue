@@ -11,11 +11,17 @@
     data() {
     return {
       employees: [
-        {
-          name: 'Mishu Baidya',
-          email: 'mishu.baidya@enosisbd.com',
-        },
-          ],
+            {
+                id: 1,
+                name: 'Mishu Baidya',
+                email: 'mishu.baidya@enosisbd.com',
+            },
+            {
+                id: 2,
+                name: 'Swapnil Biswas',
+                email: 'swapnil.biswas@enosisbd.com',
+            },
+        ],
       }},
       methods: {
         addEmployee(employee) {
