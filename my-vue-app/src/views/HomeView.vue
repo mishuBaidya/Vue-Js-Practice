@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 export default { 
     name: 'homeView', 
 
@@ -18,6 +18,15 @@ export default {
 
         const names = ref(['John', 'Jane', 'Joe', 'Mary', 'Max', 'Mick', 'Micheal', 'Mishu', 'Alice', 'Bob', 'Carol', 'David', 'Ed', 'Fiona', 'Gina', 'Hank', 'Iris']);
         const searched = ref('')
+
+
+        watch(searched, () => {
+            console.log(searched.value)
+            if(searched.value.length>6) {
+                alert('Please enter less than 6 characters')
+                searched.value = searched.value.slice(0, 6)
+            }
+        })
 
         const filteredNames = computed(() => {
             return names.value.filter(name => name.toLowerCase().includes(searched.value.toLowerCase()))
