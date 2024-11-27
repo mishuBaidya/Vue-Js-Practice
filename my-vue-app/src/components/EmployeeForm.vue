@@ -51,6 +51,10 @@ import { useStore } from 'vuex'
   input{
     height: 6vh;
     font-size: 18px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+
   }
 
   #employee-form {
@@ -69,6 +73,6 @@ import { useStore } from 'vuex'
   #employee-form button {
     margin-top: 1rem;
     width: 30vh;
-
+    background-color: #3b3838;
   }
 </style>

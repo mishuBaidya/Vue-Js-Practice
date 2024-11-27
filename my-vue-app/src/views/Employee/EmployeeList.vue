@@ -15,6 +15,7 @@
 <template>
   <div class="small-container">
     <h1>Employees</h1>
+    <br>
     <employee-form />
     <employee-table />
   </div>
