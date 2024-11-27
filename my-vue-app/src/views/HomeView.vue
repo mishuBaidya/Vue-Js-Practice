@@ -1,5 +1,8 @@
-<template>
-    <h1>Home</h1>
+<template> 
+    <h1>Home </h1>
+    <button @click="store.dispatch('increment')">{{ this.store.state.count }}</button>
+    <br>
+    <br>
     <input type="text" v-model="searched"/>
     <h2> Name List </h2>
     <div v-for="name in filteredNames" :key="name">
@@ -10,6 +13,8 @@
 
 <script>
 import { ref, computed, watch } from 'vue'
+import { useStore } from 'vuex'
+
 export default { 
     name: 'homeView', 
 
@@ -18,6 +23,9 @@ export default {
 
         const names = ref(['John', 'Jane', 'Joe', 'Mary', 'Max', 'Mick', 'Micheal', 'Mishu', 'Alice', 'Bob', 'Carol', 'David', 'Ed', 'Fiona', 'Gina', 'Hank', 'Iris']);
         const searched = ref('')
+        const store = useStore()
+
+
 
 
         watch(searched, () => {
@@ -35,7 +43,8 @@ export default {
         return {
             names,
             filteredNames,
-            searched
+            searched,
+            store
         }
     }
 

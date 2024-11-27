@@ -4,6 +4,8 @@
     components: {
     },
     data() {
+        return {
+        }
       }
   }
 </script>

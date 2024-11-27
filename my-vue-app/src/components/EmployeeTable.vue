@@ -20,46 +20,49 @@
 </template>
   
 <script>
+import { computed } from 'vue';
+import { useStore } from 'vuex'
 export default {
     name: 'employee-table',
-    props: {
-    employees: Array,
-    },
+    setup() {
+        const store = useStore()
+        const employees = (computed(() => store.getters.getEmployees))
+        //console.log(employees)
+        return {
+          store,
+          employees
+        }
+    }
 }
 </script>
   
 <style scoped>
 
 #employee-table {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 2rem;
 }
 
-#employee-table caption {
-  font-size: 1.3em;
-  margin: .5em 0 .75em;
+table {
+  width: 50vw;
+  border-collapse: collapse;
+  border: 5px solid #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px rgba(231, 224, 224, 0.1);  
 }
 
-#employee-table tr {
-  padding: .35em;
+thead, tbody {
+  border: 1px solid #ffffff;
 }
 
-#employee-table th,
-#employee-table td {
-  color: white;
-  padding: .625em;
+th, td {
+  padding: 10px;
   text-align: center;
-  border: 2px solid #ddd;
 }
 
-#employee-table th {
-  font-size: .85em;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  
+th {
+  font-weight: bold;
 }
-
 
 
 

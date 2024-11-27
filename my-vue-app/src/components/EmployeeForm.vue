@@ -1,35 +1,42 @@
 <template>
   <div >
-    <form @submit.prevent="handleSubmit" id="employee-form">
+    <form id="employee-form" @submit.prevent="handleSubmit">
       <div>
-        <label>Name</label>
-        <input v-model="employee.name" type="text" />
-        <label> Email</label>
-        <input v-model="employee.email" type="text" />
+        <label for="name">Name</label>
+        <input v-model="employee.name" type="text" id ="name"/>
+        <label for="email"> Email</label>
+        <input v-model="employee.email" type="text" id ="email"/>
       </div>
       
-      <button>Add Employee</button>
+      <button >Add Employee</button>
     </form>
   </div>
 </template>
 
 <script>
+import { useStore } from 'vuex'
   export default {
     name: 'employee-form',
-    data() {
-      return {
-        employee: {
-          name: '',
-          email: '',
-        },
-      }
-    },
-    methods: {
-    handleSubmit() {
-      console.log('testing handleSubmit')
-      this.$emit('add:employee', this.employee)
-    },
-  },
+    setup(){
+        const store = useStore()
+        const employee = {
+            id: null,
+            name: '',
+            email: '',
+        }
+
+        const handleSubmit = () => {
+          console.log(employee)
+            store.dispatch('addEmployee', employee)
+        }
+
+        return { 
+          store,
+          employee,
+            handleSubmit
+         }
+    }
+    
   }
 </script>
 
